@@ -7,5 +7,5 @@
 
 ### [Android](android)
 
-> #### [helloaosp](android/helloaosp)
+> #### **helloaosp**: [ [代码/code](android/helloaosp) / [文章](https://zhuanlan.zhihu.com/p/572100374) ]
 

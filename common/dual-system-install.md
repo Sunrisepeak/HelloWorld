@@ -136,7 +136,7 @@
 > 注: 每个电脑在开机的时候进入BIOS的方式和界面可能存在不一样, 可以网上搜索下自己电脑进入BIOS的方式及配置方法(华硕主板一般是 F2 或 del键)
 
 
-![](imgs/dual-system-install.18.png)
+![]([imgs/dual-system-install.18.png](https://pic3.zhimg.com/80/v2-e501ee9addf2a2e49c7c6cf58a1b37aa_720w.webp))
 
 
 
@@ -154,13 +154,13 @@
 > 4.选之前预留的空闲空间
 >
 
-![](imgs/dual-system-install.14.png)
+![]([imgs/dual-system-install.14.png](https://pic3.zhimg.com/80/v2-35b29d0b7409d7d1786ba4a391df8206_720w.webp))
 
-![](imgs/dual-system-install.15.png)
+![]([imgs/dual-system-install.15.png](https://pic1.zhimg.com/80/v2-ce7c010a42c7f5f5b75075651064b094_720w.webp))
 
-![](imgs/dual-system-install.16.png)
+![]([imgs/dual-system-install.16.png](https://pic3.zhimg.com/80/v2-07fa561f94bce1d7163e19f4407de31e_720w.webp))
 
-![](imgs/dual-system-install.17.png)
+![]([imgs/dual-system-install.17.png](https://pic1.zhimg.com/80/v2-b88dcb809710fac4bb722d3b2439ec98_720w.webp))
 
 
 
@@ -178,9 +178,9 @@
 powercfg /h off
 ~~~
 
-![](imgs/dual-system-install.19.png)
+![]([imgs/dual-system-install.19.png](https://pic2.zhimg.com/80/v2-a2445a1218ddb939718fa5197a40e531_720w.webp))
 
-![](imgs/dual-system-install.20.png)
+![]([imgs/dual-system-install.20.png](https://pic4.zhimg.com/80/v2-8bb65307ebbe522c25b508db8b2f4db7_720w.webp))
 
 
 ### 5.2 配置GRUB开机双系统引导
@@ -191,7 +191,7 @@ powercfg /h off
 >
 > 3.配置GRUB开机引导
 
-![](imgs/dual-system-install.21.png)
+![]([imgs/dual-system-install.21.png](https://pic2.zhimg.com/80/v2-dcb2ce9ce9aa1b4f07b96269ee91a899_720w.webp))
 
 ~~~
 os-prober # 检测可引导的系统
@@ -217,7 +217,7 @@ sudo reboot -f
 > 每次开机的时候 可以进行选择要启动的系统
 >
 
-![](imgs/dual-system-install.22.png)
+![]([imgs/dual-system-install.22.png](https://pic4.zhimg.com/80/v2-0402404d5436b5c39015dddbedcf8443_720w.webp))
 
 
 ## 7.Other

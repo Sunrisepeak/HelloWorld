@@ -1,0 +1,8 @@
+# 筛选三元组中宿主系统设置为 "none" 的所有编译目标
+[target.'cfg(target_os = "none")']
+# 配置 cargo run 默认使用 qemu-riscv64 (用户模式) 执行程序
+runner = "qemu-riscv64"
+
+[build]
+# 配置默认使用 riscv64gc-unknown-none-elf 编译程序
+target = "riscv64gc-unknown-none-elf"

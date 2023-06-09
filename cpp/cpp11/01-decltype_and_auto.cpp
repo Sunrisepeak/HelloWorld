@@ -52,6 +52,16 @@ void expression() {
     static_assert(std::is_same<decltype(f), double>::value);
 }
 
+
+auto _return_type(int a, double b) {
+    return a + b;
+}
+
+
+auto return_type(int a, double b) -> decltype(a + b) {
+    return a + b;
+}
+
 struct A {
     int data;
 };

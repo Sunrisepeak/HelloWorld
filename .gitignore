@@ -35,3 +35,6 @@
 # Rust
 target
 *.lock
+
+# Other
+.vscode

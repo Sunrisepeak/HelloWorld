@@ -60,6 +60,8 @@
 
 ### [Linux](linux)
 
+> #### [coredump](linux/coredump) [ [代码/Code](linux/coredump) / [文章](https://zhuanlan.zhihu.com/p/638514345) / [Video](https://www.bilibili.com/video/BV1wV4y1y7Hr) ]
+
 > #### [driver](linux/driver)
 >
 > ##### helloworld: [ [代码/Code](linux/driver/helloworld) / [文章](https://zhuanlan.zhihu.com/p/632738783) / [Video](https://www.bilibili.com/video/BV1Az4y1q7g4/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0) ]

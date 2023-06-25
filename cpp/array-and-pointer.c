@@ -39,14 +39,14 @@ int test1() {
 }
 
 int test2() {
-    char str1[10];  // char数组
-    char *str2;     // char指针
+    char *str1;     // char指针
+    char str2[10];  // char数组
 
     // str1 = "helloworld"; error
-    str2 = "0123456789";
+    str1 = "0123456789";
 
-    str1[0] = 'a';
-    str2 = str1;
+    str2[0] = 'a';
+    str1 = str2;
 
 /*
 ; https://gcc.godbolt.org/
@@ -57,12 +57,14 @@ int test2() {
 test2:
         push    rbp
         mov     rbp, rsp
+        mov     QWORD PTR [rbp-8], OFFSET FLAT:.LC0
+        mov     BYTE PTR [rbp-18], 97
         lea     rax, [rbp-18]
         mov     QWORD PTR [rbp-8], rax
-        mov     QWORD PTR [rbp-8], OFFSET FLAT:.LC0
         nop
         pop     rbp
         ret
+
 */
 }
 

@@ -42,8 +42,9 @@ int test2() {
     char *str1;     // char指针
     char str2[10];  // char数组
 
-    // str1 = "helloworld"; error
     str1 = "0123456789";
+    // str2 = "helloworld"; error
+
 
     str2[0] = 'a';
     str1 = str2;

@@ -50,7 +50,7 @@
 
 > #### **capture_stream**: [ [代码/Code](cpp/capture_stream) ]
 
-> #### **class_access_control_hook_ctor**: [ [代码/Code](cpp/class_access_control_hook_ctor) / [文章](https://zhuanlan.zhihu.com/p/539824562) ]
+> #### **C++特殊场景/时期下类成员的访问(权限)控制**: [ [代码/Code](cpp/class_access_control_hook_ctor) / [文章](https://zhuanlan.zhihu.com/p/539824562) ]
 >
 > #### 数组和指针的联系与区别: [ [代码/Code](cpp/array-and-pointer.c) / [文章](https://www.zhihu.com/question/586705302/answer/3088963236) / [视频/Video](https://www.bilibili.com/video/BV1LX4y1q7HB)]
 >

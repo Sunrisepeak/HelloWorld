@@ -42,15 +42,21 @@
 
 
 
-### [CPP](cpp)
+### [C/CPP](cpp)
 
 > #### [c++11特性](cpp/c++11)
 >
-> ##### 1.auto / decltype: [ [代码/Code](cpp/cpp11/01-decltype_and_auto.cpp) / [文章](https://zhuanlan.zhihu.com/p/635745510)  / [Video](https://www.bilibili.com/video/BV1aj411X7gy)]
+> - 1.auto / decltype: [ [代码/Code](cpp/cpp11/01-decltype_and_auto.cpp) / [文章](https://zhuanlan.zhihu.com/p/635745510)  / [Video](https://www.bilibili.com/video/BV1aj411X7gy)]
 
 > #### **capture_stream**: [ [代码/Code](cpp/capture_stream) ]
 
 > #### **class_access_control_hook_ctor**: [ [代码/Code](cpp/class_access_control_hook_ctor) / [文章](https://zhuanlan.zhihu.com/p/539824562) ]
+>
+> #### 数组和指针的联系与区别: [ [代码/Code](cpp/array-and-pointer.c) / [文章](https://www.zhihu.com/question/586705302/answer/3088963236) / [视频/Video](https://www.bilibili.com/video/BV1LX4y1q7HB)]
+>
+> #### 复杂类型的识别与定义: 方法论篇: [ [文章](https://zhuanlan.zhihu.com/p/341431827) ]
+>
+> #### 复杂类型的识别与定义: 函数指针篇: [ [代码/Code](cpp/complex_type_def.c) / [文章](https://www.zhihu.com/question/608829835/answer/3092274674) ]
 
 
 
@@ -64,4 +70,4 @@
 
 > #### [driver](linux/driver)
 >
-> ##### helloworld: [ [代码/Code](linux/driver/helloworld) / [文章](https://zhuanlan.zhihu.com/p/632738783) / [Video](https://www.bilibili.com/video/BV1Az4y1q7g4/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0) ]
+> - helloworld: [ [代码/Code](linux/driver/helloworld) / [文章](https://zhuanlan.zhihu.com/p/632738783) / [Video](https://www.bilibili.com/video/BV1Az4y1q7g4/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0) ]

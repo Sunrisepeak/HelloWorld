@@ -57,6 +57,8 @@
 > #### 复杂类型的识别与定义: 方法论篇: [ [文章](https://zhuanlan.zhihu.com/p/341431827) ]
 >
 > #### 复杂类型的识别与定义: 函数指针篇: [ [代码/Code](cpp/complex_type_def.c) / [文章](https://www.zhihu.com/question/608829835/answer/3092274674) ]
+>
+> #### 两行代码判断环境内存字节序是大端模式还是小端模式 ： [ [代码/Code](cpp/byte_seq.c) / [视频/Video](https://www.bilibili.com/video/BV1Wh4y1M7uv) ]
 
 
 

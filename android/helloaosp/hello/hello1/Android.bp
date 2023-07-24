@@ -1,0 +1,24 @@
+cc_binary {
+
+	name: "hello1_aosp",
+
+	// odm/bin
+	device_specific: true,
+
+	cflags: [
+		"-Wall",
+	],
+
+	include_dirs: [
+		"vendor/Demos/android/helloaosp/hello/lib_api",
+	],
+
+	srcs : [
+		"hello1_aosp.cpp",
+	],
+
+	required: [
+		"libhelloaosp.v1",
+	],
+
+}

@@ -1,0 +1,28 @@
+cc_binary {
+
+	name: "hello2_aosp",
+
+	// default system/bin
+	// device_specific: true,
+	// vendor: true,
+
+	cflags: [
+		"-Wall",
+	],
+
+	local_include_dirs: [
+		"lib_api",
+	],
+
+	srcs : [
+		"hello2_aosp.cpp",
+	],
+
+	shared_libs: [
+		"libhelloaosp.v2",
+	],
+
+	required: [
+		"libhelloaosp.v2",
+	],
+}

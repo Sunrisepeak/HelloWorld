@@ -1,0 +1,45 @@
+cc_prebuilt_library_shared {
+
+	name: "libhelloaosp.v1",
+	vendor: true,
+	compile_multilib: "both",
+	check_elf_files: false, // disable check/match: DT_SONAME "lib.so" and the file name 
+
+	multilib: {
+		lib64: {
+			srcs: ["lib64/libhelloaosp.v1.so"],
+		},
+		lib32: {
+			srcs: ["lib/libhelloaosp.v1.so"],
+		},
+	},
+
+	strip: {
+		none: true,
+		keep_symbols: true,
+	},
+
+}
+
+cc_prebuilt_library_shared {
+
+	name: "libhelloaosp.v2",
+	// system/bin
+	compile_multilib: "both",
+	check_elf_files: false, 
+
+	multilib: {
+		lib64: {
+			srcs: ["lib64/libhelloaosp.v2.so"],
+		},
+		lib32: {
+			srcs: ["lib/libhelloaosp.v2.so"],
+		},
+	},
+
+	strip: {
+		none: true,
+		keep_symbols: true,
+	},
+
+}

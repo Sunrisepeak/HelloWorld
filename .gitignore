@@ -30,3 +30,11 @@
 *.exe
 *.out
 *.app
+
+
+# Rust
+target
+*.lock
+
+# Other
+.vscode

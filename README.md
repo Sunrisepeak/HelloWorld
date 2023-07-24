@@ -11,7 +11,7 @@
 
 ### [Common](common)
 
-> #### **Linux环境安装双系统**: [[文章](https://zhuanlan.zhihu.com/p/572100374) / [Video](https://www.bilibili.com/video/BV1p54y137Mg)]
+> #### **Linux环境安装双系统**: [[文章](https://zhuanlan.zhihu.com/p/609573337) / [Video](https://www.bilibili.com/video/BV1p54y137Mg)]
 
 
 

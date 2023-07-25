@@ -47,6 +47,8 @@
 > #### [c++11特性](cpp/c++11)
 >
 > - 1.auto / decltype: [ [代码/Code](cpp/cpp11/01-decltype_and_auto.cpp) / [文章](https://zhuanlan.zhihu.com/p/635745510)  / [Video](https://www.bilibili.com/video/BV1aj411X7gy)]
+>
+> - 2.类(编译器默认生成)成员函数的delete和default关键字: [ [代码/Code](cpp/cpp11/02-delete-and-default.cpp) / [Video](https://www.bilibili.com/video/BV12M4y1p794)]
 
 > #### **capture_stream**: [ [代码/Code](cpp/capture_stream) ]
 

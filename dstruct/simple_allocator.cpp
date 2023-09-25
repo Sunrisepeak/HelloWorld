@@ -94,7 +94,7 @@ struct RGB {
     char b;
 };
 
-// test ByteAllocator
+// test SimpleAllocator
 int main() {
 
     dstruct::Vector<int *> ptrVec;

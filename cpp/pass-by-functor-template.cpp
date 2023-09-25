@@ -1,4 +1,5 @@
 #include <iostream>
+#include <algorithm>
 
 template <typename T>
 struct Functor1 {
@@ -35,6 +36,15 @@ private:
     }
 };
 
+// template args
+
+// pass by type
+template <typename F, typename... Args>
+void test0(F f, Args&&... args) {
+    f(std::forward<Args>(args)...);
+}
+
+// pass by template
 template <template <typename...> class FT, typename... Args>
 void test1(Args&&... args) {
     // do something...
@@ -42,6 +52,7 @@ void test1(Args&&... args) {
     // do something...
 }
 
+// pass by template
 template <template <typename> class FT, typename T1, typename T2>
 void test2(T1 t1,  T2 t2) {
 

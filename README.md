@@ -50,7 +50,7 @@
 >
 > - 2.类(编译器默认生成)成员函数的delete和default关键字: [ [代码/Code](cpp/cpp11/02-delete-and-default.cpp) / [Video](https://www.bilibili.com/video/BV12M4y1p794)]
 >
-> - 2.C++11 语言特性3: final 关键字 与 模板模式: [ [代码/Code](cpp/cpp11/03-final_keyward.cpp) / [文章](https://zhuanlan.zhihu.com/p/673357342) / [Video]()]
+> - 3.C++11 语言特性3: final 关键字 与 模板模式: [ [代码/Code](cpp/cpp11/03-final_keyward.cpp) / [文章](https://zhuanlan.zhihu.com/p/673357342) / [Video](https://www.bilibili.com/video/BV1ei4y1a7AF)]
 
 > #### **capture_stream**: [ [代码/Code](cpp/capture_stream) ]
 

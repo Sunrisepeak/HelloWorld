@@ -1,0 +1,3 @@
+[submodule "libs/DStruct"]
+	path = libs/DStruct
+	url = git@github.com:Sunrisepeak/DStruct.git

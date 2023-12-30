@@ -12,6 +12,8 @@
 ### [Common](common)
 
 > #### **Linux环境安装双系统**: [[文章](https://zhuanlan.zhihu.com/p/609573337) / [Video](https://www.bilibili.com/video/BV1p54y137Mg)]
+>
+> #### **Linux: C语言实现范型数据结构 - 嵌入(侵入)式链表浅谈**: [[代码/code](common/embedded-list.cpp) / [文章]() / [Video]()]
 
 
 

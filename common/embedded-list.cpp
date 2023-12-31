@@ -115,7 +115,7 @@ int main() {
     linkPtr = to_link(&myList)->next;
     while (dstruct::_SinglyLink::empty(to_link(&myList))) {
         auto next = linkPtr->next;
-        free(linkPtr);
+        free(to_node(linkPtr, MyListNode, linker));
         linkPtr = next;
     }
 

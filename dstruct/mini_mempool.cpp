@@ -7,12 +7,12 @@
 
 /*
 
-g++ dstruct/mini_mempool.cpp -I ../DStruct && ./a.out
+g++ dstruct/mini_mempool.cpp -I libs/DStruct && ./a.out
 
 */
 
 
-//#define DEBUG
+#define DEBUG
 
 #define LOGI(...) printf("%s: ", __func__); printf(__VA_ARGS__); printf("\n")
 
@@ -171,6 +171,9 @@ int main() {
         std::cout << "MiniMemPool::deallocate: " << memBlockPtrArr[i] << std::endl;
         MiniMemPool::deallocate(memBlockPtrArr[i], memBlockSize);
     }   
+
+    auto ptr = MiniMemPool::allocate(1024);
+    MiniMemPool::deallocate(ptr, 1024);
 
     LOGI("MiniMemPool free memory size is %d", MiniMemPool::free_mem_size());
 

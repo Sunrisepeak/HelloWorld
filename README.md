@@ -14,7 +14,10 @@
 > #### **Linux环境安装双系统**: [[文章](https://zhuanlan.zhihu.com/p/609573337) / [Video](https://www.bilibili.com/video/BV1p54y137Mg)]
 >
 > #### **Linux: C语言实现范型数据结构 - 嵌入(侵入)式链表浅谈**: [[代码/code](common/embedded-list.cpp) / [文章](https://zhuanlan.zhihu.com/p/675389928) / [Video](https://www.bilibili.com/video/BV1Se411q735/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0)]
-
+>
+> #### **DStruct: 静态内存分配器(SMA) 设计与实现 - 简单分配器篇**: [[代码/code](dstruct/simple_allocator.cpp) / [文章](https://zhuanlan.zhihu.com/p/659002942) / [Video](https://www.bilibili.com/video/BV1Rb4y157iM/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0)]
+>
+> #### **DStruct: 静态内存分配器(SMA) 设计与实现 - 迷你内存池篇**: [[代码/code](dstruct/mini_mempool.cpp) / [文章](https://zhuanlan.zhihu.com/p/676909947) / [Video](https://www.bilibili.com/video/BV18W4y1A7Ww/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0)]
 
 
 ---

@@ -5,7 +5,7 @@
 
 /*
 
-g++ dstruct/simple_allocator.cpp -I ../DStruct && ./a.out
+g++ dstruct/simple_allocator.cpp -I libs/DStruct && ./a.out
 
 */
 

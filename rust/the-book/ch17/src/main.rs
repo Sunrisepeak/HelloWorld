@@ -77,6 +77,8 @@ impl Post {
     }
 
     pub fn content(&self) -> &str {
+        // `self.state` moved due to this method call
+        //self.state.unwrap().content(self)
         self.state.as_ref().unwrap().content(self)
     }
 }

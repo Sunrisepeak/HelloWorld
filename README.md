@@ -45,7 +45,11 @@
 
 ---
 
+### [Rust](rust)
 
+> #### [官方文档TheBook](rust/the-book)
+> - 1.State-Pattern 状态模式 运行期和编译期实现 [[code](rust/the-book/ch17)]
+>
 
 ### [C/CPP](cpp)
 

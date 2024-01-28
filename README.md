@@ -23,7 +23,7 @@
 ---
 
 
-### Math(math)
+### [Math](math)
 > #### **计算机数学基础**
 >
 > - 片头/片尾动画制作 - Logo [[代码/code](math/cs-mathbase/logo.py) / [文章]() / [Video](https://www.bilibili.com/video/BV1ig4y1e7Fy/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0)]

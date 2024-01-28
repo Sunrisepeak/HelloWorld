@@ -38,3 +38,5 @@ target
 
 # Other
 .vscode
+media
+**/__pycache__/

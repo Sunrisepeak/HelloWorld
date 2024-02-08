@@ -1,6 +1,6 @@
 from manim import *
 
-class CSMathBaseLogo(Scene):
+class CSMathBase(Scene):
     def construct(self):
         start_logo, title = self._start_logo()
         my_open_source = self._end_logo()
@@ -116,5 +116,5 @@ class CSMathBaseLogo(Scene):
         return new_p
 
 if __name__ == "__main__":
-    scene = CSMathBaseLogo()
+    scene = CSMathBase()
     scene.render()

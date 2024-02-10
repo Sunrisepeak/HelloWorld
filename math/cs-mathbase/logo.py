@@ -1,6 +1,6 @@
 from manim import *
 
-class CSMathBase(Scene):
+class CSMathBase(MovingCameraScene):
     def construct(self):
         start_logo, title = self._start_logo()
         my_open_source = self._end_logo()

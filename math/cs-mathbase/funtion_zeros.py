@@ -7,6 +7,8 @@ Wiki: https://zh.wikipedia.org/zh-cn/%E7%89%9B%E9%A1%BF%E6%B3%95
 
 python3 math/cs-mathbase/funtion_zeros.py
 
+manim -pql math/cs-mathbase/funtion_zeros.py BinarySearch
+
 """
 
 class Newton(CSMathBase):
@@ -253,10 +255,89 @@ def sqrt_newton(target, tolerance=0.0001):
             return x0 * x0 - 2 + 2 * x0 * (x - x0)
         return f
 
+class BinarySearch(CSMathBase):
+    def construct(self):
+        start_logo, start_logo_title = self._start_logo()
+
+        title = VGroup(
+            Text("sqrt()平方根计算实现").set_color(YELLOW),
+            Text("之一 - 二分法", t2c={"之一": PURE_RED, "二分法": BLUE})
+        ).arrange(RIGHT)
+
+        self.play(ReplacementTransform(start_logo, title[0]))
+
+        self.wait()
+
+        self.play(ReplacementTransform(start_logo_title, title[1]))
+
+        self.wait()
+
+        segments = VGroup(
+            Text("1. 二分法简介"),
+            Text("2. 问题的数学表示"),
+            Text("3. 求解过程演示"),
+            Text("4. 代码实现")
+        ).arrange(DOWN, aligned_edge=LEFT).set_opacity(0.5)
+
+        self.play(
+            title.animate.to_corner(UP),
+            FadeIn(segments)
+        )
+
+        self.wait()
+
+        segments[0].set_opacity(1)
+
+        self.wait()
+
+        binary_search_overview = ImageMobject("imgs/math/function_zeros.1.png")
+        binary_search_overview.scale(1.1)
+
+        self.play(FadeIn(binary_search_overview))
+
+        self.wait()
+
+        self.play(binary_search_overview.animate.scale(0))
+
+        self.wait()
+        
+        segments[0].set_opacity(0.3)
+        segments[1].set_opacity(1)
+
+        self.wait()
+
+        axes = Axes(
+            x_range=[-2, 5],
+            y_range=[-4, 25],
+            axis_config={"color": GREEN},
+            x_axis_config={
+                "numbers_to_include": np.arange(-2, 5.01, 2),
+                "numbers_with_elongated_ticks": np.arange(-2, 5.01, 2),
+            },
+            y_axis_config={
+                "numbers_to_include": np.arange(-4, 25, 4),
+                "numbers_with_elongated_ticks": np.arange(-4, 25, 4),
+            },
+            tips=False,
+        ).scale(0.8)
+
+        axes_labels = axes.get_axis_labels(x_label="x", y_label="f(x) = x^2 - 2")
+        func_graph = axes.plot(lambda x: x * x - 2, x_range=[-2, 5], color=BLUE).set_stroke(width=2)
+
+        graph = VGroup(axes, axes_labels.scale(0.7), func_graph)
+
+        self.play(
+            FadeOut(segments),
+            Create(graph)
+        )
+
+        self.wait()
+
 if __name__ == "__main__":
 
-    print(Newton.sqrt_newton(2))
+    #print(Newton.sqrt_newton(2))
 
-    scene = Newton()
+    #scene = Newton()
+    scene = BinarySearch()
 
     scene.render()

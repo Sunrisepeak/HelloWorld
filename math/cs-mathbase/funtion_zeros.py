@@ -266,8 +266,6 @@ class BinarySearch(CSMathBase):
 
         self.play(ReplacementTransform(start_logo, title[0]))
 
-        self.wait()
-
         self.play(ReplacementTransform(start_logo_title, title[1]))
 
         self.wait()
@@ -275,8 +273,7 @@ class BinarySearch(CSMathBase):
         segments = VGroup(
             Text("1. 二分法简介"),
             Text("2. 问题的数学表示"),
-            Text("3. 求解过程演示"),
-            Text("4. 代码实现")
+            Text("3. 求解过程演示&代码实现"),
         ).arrange(DOWN, aligned_edge=LEFT).set_opacity(0.5)
 
         self.play(
@@ -378,9 +375,10 @@ class BinarySearch(CSMathBase):
         self.wait()
 
         sqrt_2 = VGroup(
+            Text("求解"),
             MathTex(r"\sqrt{2}"),
             Text("误差 0.01")
-        ).arrange(DOWN).to_corner(LEFT)
+        ).arrange(RIGHT).scale(0.7)
 
         self.play(Write(sqrt_2))
 
@@ -402,12 +400,12 @@ class BinarySearch(CSMathBase):
 
         scale_center_point = graph[0].coords_to_point(1, 0)
 
-        self.play(self.camera.frame.animate.scale(0.2).move_to(scale_center_point))
+        self.play(self.camera.frame.animate.scale(0.25).move_to(scale_center_point))
 
         pixel_delta = scale_center_point[0]
 
         title_2 = Text(
-            "以0.01为区间做离散化",
+            "以0.01为间隔做离散化",
             t2c={"离散化": PURE_RED}
         ).move_to([pixel_delta, pixel_delta - 0.4, 0])
         title_2.scale(0.2)
@@ -465,43 +463,54 @@ class BinarySearch(CSMathBase):
 
             return compute_completed, mid, fx_value
 
-        ok, x, fx = compute()
+        ok, x, fx = (False, 2, 2)
 
         x_and_fx = Text(
-            'f({:.3f}) = {:.2f}'.format(x, fx),
-            t2c={
-                '{:.3f}'.format(x) : BLUE,
-                '{:.2f}'.format(fx): PURE_GREEN
-            }
+            'f({:.3f}) = X * X - 2 = {:.2f}'.format(x, fx),
         ).move_to([pixel_delta, pixel_delta - 1.5, 0]).scale(0.15)
 
-        search_interval = Text('查找区间[{:.3f}, {:.3f}]'.format(interval[0], interval[1]))
+        interval_len = Text(
+            '< {:.3f} >'.format(interval[1] - interval[0]),
+            t2c={'{:.3f}'.format(interval[1] - interval[0]) : YELLOW}
+        ).move_to([pixel_delta, pixel_delta - 0.2, 0]).scale(0.2)
+
+        search_interval = Text(
+            '查找区间[{:.3f}, {:.3f}]'.format(interval[0], interval[1])
+        )
         search_interval.move_to([pixel_delta, pixel_delta - 0.8, 0]).scale(0.15)
 
-        self.play(Create(VGroup(search_interval, x_and_fx)))
+        self.play(Create(VGroup(search_interval, x_and_fx, interval_len)))
 
         while ok == False:
             old_x_and_fx = x_and_fx
             old_search_interval = search_interval
+            old_interval_len = interval_len
 
             ok, x, fx = compute()
 
-            print('f({:.2f}) = {:.2f}'.format(x, fx))
+            print('f({:.2f}) = {:.6f}'.format(x, fx))
 
             x_and_fx = Text(
-                'f({:.3f}) = {:.2f}'.format(x, fx),
+                'f({:.5f}) = X * X - 2 = {:.4f}'.format(x, fx),
                 t2c={
-                    '{:.3f}'.format(x) : BLUE,
-                    '{:.2f}'.format(fx): PURE_GREEN
+                    '{:.5f}'.format(x) : BLUE,
+                    '{:.4f}'.format(fx): PURE_GREEN
                 }
             ).move_to([pixel_delta, pixel_delta - 1.5, 0]).scale(0.15)
 
-            search_interval = Text('查找区间[{:.3f}, {:.3f}]'.format(interval[0], interval[1]))
+            interval_len = Text(
+                '< {:.3f} >'.format(interval[1] - interval[0]),
+                t2c={'{:.3f}'.format(interval[1] - interval[0]) : YELLOW}
+            ).move_to([pixel_delta, pixel_delta - 0.2, 0]).scale(0.2)
+
+            search_interval = Text(
+                '查找区间[{:.3f}, {:.3f}]'.format(interval[0], interval[1]),
+            )
             search_interval.move_to([pixel_delta, pixel_delta - 0.8, 0]).scale(0.15)
 
             self.play(ReplacementTransform(
-                VGroup(old_x_and_fx, old_search_interval),
-                VGroup(search_interval, x_and_fx)
+                VGroup(old_x_and_fx, old_search_interval, old_interval_len),
+                VGroup(x_and_fx, search_interval, interval_len)
             ))
 
         self.wait()
@@ -510,11 +519,88 @@ class BinarySearch(CSMathBase):
 
         self.wait()
 
+        code = """
+# 计算平方根: f(x) = x^2 - a
+def sqrt_binary_serach(target, tolerance=0.001):
+    #assert target > 0
+    interval = [0, target]
+
+    def f(x):
+        return x * x - target
+
+    fx_value = f(target)
+
+    while True:
+        # 计算新的估计值 Xn+1 = Xn - F(Xn) / F'(Xn)
+        mid = (interval[0] + interval[1]) / 2
+        fx_value = f(mid)
+        if fx_value == 0:
+            return mid
+        if fx_value > 0:
+            interval[1] = mid # 更新区间右值
+        else:
+            interval[0] = mid # 更新区间左值
+        # 计算误差, 符合要求误差就break出
+        if abs(interval[0] - interval[1]) < tolerance:
+            break
+
+    return interval[0]
+"""
+        rendered_code = Code(
+            code=code, tab_width=4, background="linux",
+            language="Python", font="Monospace", style="emacs"
+        )
+        rendered_code.scale(0.8).set_opacity(0.8)
+
+        self.play(Create(rendered_code))
+
+        self.wait()
+
+        #print(str(self.sqrt_binary_serach(2)))
+
+        end_log = self._end_logo()
+
+        self.play(ReplacementTransform(VGroup(title, title_2, sqrt_2, rendered_code), end_log[0]))
+
+        self.play(ReplacementTransform(
+            VGroup(graph, array_info, interval_len, search_interval, x_and_fx),
+            end_log[1]
+        ))
+
+        self.play(FadeOut(end_log), run_time=3)
+
+    def sqrt_binary_serach(self, target, tolerance=0.001):
+        #assert target > 0
+        interval = [0, target]
+
+        def f(x):
+            return x * x - target
+
+        fx_value = f(target)
+
+        while True:
+            # 计算新的估计值 Xn+1 = Xn - F(Xn) / F'(Xn)
+            mid = (interval[0] + interval[1]) / 2
+            fx_value = f(mid)
+            if fx_value == 0:
+                return mid
+            if fx_value > 0:
+                interval[1] = mid # 更新区间右值
+            else:
+                interval[0] = mid # 更新区间左值
+            # 计算误差, 符合要求误差就break出
+            if abs(interval[0] - interval[1]) < tolerance:
+                break
+
+        return interval[0]
+
 if __name__ == "__main__":
 
     #print(Newton.sqrt_newton(2))
 
     #scene = Newton()
     scene = BinarySearch()
+
+    #print(str(scene.sqrt_binary_serach(2)))
 
     scene.render()

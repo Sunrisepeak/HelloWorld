@@ -322,14 +322,191 @@ class BinarySearch(CSMathBase):
         ).scale(0.8)
 
         axes_labels = axes.get_axis_labels(x_label="x", y_label="f(x) = x^2 - 2")
-        func_graph = axes.plot(lambda x: x * x - 2, x_range=[-2, 5], color=BLUE).set_stroke(width=2)
+        func_graph = axes.plot(lambda x: x * x - 2, x_range=[-2, 5], color=BLUE).set_stroke(width=1)
 
         graph = VGroup(axes, axes_labels.scale(0.7), func_graph)
 
+        formulas = VGroup(
+            MathTex(r"\sqrt{a} = X"),
+            MathTex(r"a = X^2"),
+            MathTex(r"f(x) = x^2 - a")
+        ).arrange(DOWN).scale(0.8).to_corner(LEFT)
+
         self.play(
             FadeOut(segments),
-            Create(graph)
+            Create(graph),
+            Create(formulas)
         )
+
+        self.wait()
+
+        formula_box = SurroundingRectangle(formulas[0])
+
+        self.play(Create(formula_box))
+
+        self.wait()
+
+        old_formula_box = formula_box
+        formula_box = SurroundingRectangle(formulas[1])
+
+        self.play(ReplacementTransform(old_formula_box, formula_box))
+
+        self.wait()
+
+        old_formula_box = formula_box
+        formula_box = SurroundingRectangle(formulas[2])
+
+        self.play(ReplacementTransform(old_formula_box, formula_box))
+
+        self.wait()
+
+        self.play(
+            FadeIn(segments),
+            FadeOut(VGroup(formula_box, formulas, graph))
+        )
+
+        segments[1].set_opacity(0.3)
+        segments[2].set_opacity(1)
+
+        self.wait()
+
+        self.play(
+            FadeOut(segments),
+            FadeIn(graph)
+        )
+
+        self.wait()
+
+        sqrt_2 = VGroup(
+            MathTex(r"\sqrt{2}"),
+            Text("误差 0.01")
+        ).arrange(DOWN).to_corner(LEFT)
+
+        self.play(Write(sqrt_2))
+
+        self.wait()
+
+        lines = VGroup()
+        
+        # Generate lines for the specified x_range from 0 to 2 with a step of 0.01
+        for x in np.arange(0, 2, 0.01):
+            line = Line(
+                start=axes.c2p(x, 0),
+                end=axes.c2p(x, (lambda x: x**2 - 2)(x)),
+                stroke_width=0.3,
+                color=BLUE if int((x * 100) % 2) == 0 else YELLOW
+            )
+            lines.add(line)
+
+        self.camera.frame.save_state()
+
+        scale_center_point = graph[0].coords_to_point(1, 0)
+
+        self.play(self.camera.frame.animate.scale(0.2).move_to(scale_center_point))
+
+        pixel_delta = scale_center_point[0]
+
+        title_2 = Text(
+            "以0.01为区间做离散化",
+            t2c={"离散化": PURE_RED}
+        ).move_to([pixel_delta, pixel_delta - 0.4, 0])
+        title_2.scale(0.2)
+
+        self.play(
+            Create(lines),
+            Write(title_2)
+        )
+
+        self.wait()
+
+        array_info = Text(
+            "f(index/tolerance)_value[0,..,200]",
+            t2c={"f(index/tolerance)_value": BLUE}
+        ).move_to([pixel_delta, pixel_delta - 0.6, 0])
+        array_info.scale(0.15)
+
+        self.play(Write(array_info))
+
+        self.wait()
+
+        def f(x):
+            return x * x - 2
+
+        interval = [0, 2]
+        tolerance = 0.01
+        def compute():
+            mid = (interval[0] + interval[1]) / 2
+
+            fx_value = f(mid)
+
+            if fx_value > 0:
+                interval[1] = mid
+            else:
+                interval[0] = mid
+
+            mid_dot = Dot(graph[0].coords_to_point(mid, 0)).set_color(PINK).scale(0.2)
+
+            self.play(Create(mid_dot))
+
+            graph.add(mid_dot)
+
+            for value in np.arange(0, interval[0], 0.01):
+                lines[int(value * 100)].set_opacity(0.3)
+
+            self.wait(0.5)
+
+            for value in np.arange(interval[1], 2, 0.01):
+                lines[int(value * 100)].set_opacity(0.3)
+
+            compute_completed = False
+
+            if abs(interval[1] - interval[0]) < tolerance:
+                compute_completed = True
+
+            return compute_completed, mid, fx_value
+
+        ok, x, fx = compute()
+
+        x_and_fx = Text(
+            'f({:.3f}) = {:.2f}'.format(x, fx),
+            t2c={
+                '{:.3f}'.format(x) : BLUE,
+                '{:.2f}'.format(fx): PURE_GREEN
+            }
+        ).move_to([pixel_delta, pixel_delta - 1.5, 0]).scale(0.15)
+
+        search_interval = Text('查找区间[{:.3f}, {:.3f}]'.format(interval[0], interval[1]))
+        search_interval.move_to([pixel_delta, pixel_delta - 0.8, 0]).scale(0.15)
+
+        self.play(Create(VGroup(search_interval, x_and_fx)))
+
+        while ok == False:
+            old_x_and_fx = x_and_fx
+            old_search_interval = search_interval
+
+            ok, x, fx = compute()
+
+            print('f({:.2f}) = {:.2f}'.format(x, fx))
+
+            x_and_fx = Text(
+                'f({:.3f}) = {:.2f}'.format(x, fx),
+                t2c={
+                    '{:.3f}'.format(x) : BLUE,
+                    '{:.2f}'.format(fx): PURE_GREEN
+                }
+            ).move_to([pixel_delta, pixel_delta - 1.5, 0]).scale(0.15)
+
+            search_interval = Text('查找区间[{:.3f}, {:.3f}]'.format(interval[0], interval[1]))
+            search_interval.move_to([pixel_delta, pixel_delta - 0.8, 0]).scale(0.15)
+
+            self.play(ReplacementTransform(
+                VGroup(old_x_and_fx, old_search_interval),
+                VGroup(search_interval, x_and_fx)
+            ))
+
+        self.wait()
+
+        self.play(Restore(self.camera.frame))
 
         self.wait()
 

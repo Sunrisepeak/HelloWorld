@@ -418,8 +418,8 @@ class BinarySearch(CSMathBase):
         self.wait()
 
         array_info = Text(
-            "f(index/tolerance)_value[0,..,200]",
-            t2c={"f(index/tolerance)_value": BLUE}
+            "f(index * tolerance)_value[0,..,200]",
+            t2c={"f(index * tolerance)_value": BLUE}
         ).move_to([pixel_delta, pixel_delta - 0.6, 0])
         array_info.scale(0.15)
 
@@ -488,7 +488,7 @@ class BinarySearch(CSMathBase):
 
             ok, x, fx = compute()
 
-            print('f({:.2f}) = {:.6f}'.format(x, fx))
+            #print('f({:.2f}) = {:.6f}'.format(x, fx))
 
             x_and_fx = Text(
                 'f({:.5f}) = X * X - 2 = {:.4f}'.format(x, fx),

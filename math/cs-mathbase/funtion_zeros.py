@@ -261,7 +261,7 @@ class BinarySearch(CSMathBase):
 
         title = VGroup(
             Text("sqrt()平方根计算实现").set_color(YELLOW),
-            Text("之一 - 二分法", t2c={"之一": PURE_RED, "二分法": BLUE})
+            Text("之一 二分法", t2c={"之一": PURE_RED, "二分法": BLUE})
         ).arrange(RIGHT)
 
         self.play(ReplacementTransform(start_logo, title[0]))

@@ -30,7 +30,9 @@
 >
 > - 贝塞尔曲线绘制原理-动画解析 [[代码/code](math/cs-mathbase/bezier_curve_by_de_casteljau.py) / [文章]() / [Video](https://www.bilibili.com/video/BV1Mg4y1e713/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0)]
 >
-> - 函数零点近似求解 牛顿迭代法 [[代码/code](math/cs-mathbase/funtion_zeros.py) / [文章]() / [Video](https://www.bilibili.com/video/BV1px4y127PD/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0)]
+> - 函数零点近似求解 牛顿迭代法 [[代码/code](math/cs-mathbase/funtion_zeros.py) / [文章](https://zhuanlan.zhihu.com/p/684035158) / [Video](https://www.bilibili.com/video/BV1px4y127PD/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0)]
+>
+> - sqrt平方根(函数零点)近似求解算法 - 根号2计算 [[代码/code](math/cs-mathbase/funtion_zeros.py) / [文章](https://zhuanlan.zhihu.com/p/684035158) / [Video](https://www.bilibili.com/video/BV1MF4m1j7jj)]
 
 
 ### [Android](android)

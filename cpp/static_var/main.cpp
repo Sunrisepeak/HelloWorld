@@ -2,7 +2,28 @@
 
 #include <StaticVar.hpp>
 
+/*
+struct A {
+    using Type = int &;
+    operator int&() {
+        printf("%p\n", &i);
+        return i;
+    }
+
+    int i;
+};
+
+void test(int &i) {
+    i = 2;
+}
+*/
 int main() {
+    //A a;
+    //test(a);
+    //printf("%p %d\n", &a, a.i);
+
+    return 0;
+
     printf("file1: static var %p\n", file1_static_var());
     printf("file2: static var %p\n", file2_static_var());
 

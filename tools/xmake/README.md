@@ -213,7 +213,7 @@ target("test")
 使用`xmake build test`命令构建测试程序, 将会根据`add_deps("xlib-shared")`的描述自动构建相关库依赖
 
 
-### 完成工程结构
+### 完整工程结构
 
 ```bash
 .
@@ -385,7 +385,7 @@ speak@speak-pc:~/workspace/github/HelloWorld/tools/xmake/step3$ xmake r
 [  PASSED  ] 1 test.
 ```
 
-### 完成工程结构
+### 完整工程结构
 
 ```bash
 .

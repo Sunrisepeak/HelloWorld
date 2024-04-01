@@ -43,6 +43,9 @@ target("main")
     add_files("src/main.cpp")
 ```
 
+- `target`: 一个target描述一个构建目标
+- `add_files`: 添加需要编译的文件
+
 **演示代码**
 ```cpp
 #include <iostream>
@@ -210,8 +213,11 @@ target("test")
     add_deps("xlib-shared")
 ```
 
-使用`xmake build test`命令构建测试程序, 将会根据`add_deps("xlib-shared")`的描述自动构建相关库依赖
+使用`xmake build test`命令构建测试程序, 将会根据`add_deps("xlib-shared")`的
 
+- `set_kind`: 描述构建目标的类型(`binary`, `static`, `shared`...)
+- `add_deps`： 描述构建目标的库依赖
+- `add_includedirs`: 添加头文件路径
 
 ### 完整工程结构
 
@@ -355,7 +361,7 @@ add_requires("dstruct")
 
 - `set_urls`: 配置库的地址
 - `add_includedirs`: 配置库中的头文件路径
-- `on_install`: 用于描述安装库时的细节。如: 编译成静态库还是动态库, 以及需要安装哪些头文件等, 对于只有头文件的库直接`os.mv`或`os.cp`所有仓库文件即可
+- `on_install`: 用于描述安装库时的细节。如: 编译成静态库还是动态库, 以及需要安装哪些头文件等, 对于只有头文件的库直接`os.mv`移动或`os.cp`复制所有仓库文件即可
 
 **自动处理个人(或私有)库依赖 - dstruct**
 

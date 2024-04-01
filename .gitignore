@@ -40,3 +40,5 @@ target
 .vscode
 media
 **/__pycache__/
+**/.xmake
+**/build

@@ -99,3 +99,9 @@
 > #### [driver](linux/driver)
 >
 > - helloworld: [ [代码/Code](linux/driver/helloworld) / [文章](https://zhuanlan.zhihu.com/p/632738783) / [Video](https://www.bilibili.com/video/BV1Az4y1q7g4/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0) ]
+
+
+### [tools](tools)
+
+>
+> #### xmake: C/C++轻量级构建和包管理工具 - 初步上手 : [[代码/code](tools/xmake) / [文章]() / [视频]() ] 

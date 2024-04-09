@@ -104,4 +104,6 @@
 ### [tools](tools)
 
 >
-> #### xmake: C/C++轻量级构建和包管理工具 - 初步上手 : [[代码/code](tools/xmake) / [文章]() / [视频]() ] 
+> #### xmake: C/C++轻量级构建和包管理工具 | 初步上手 : [[代码/code](tools/xmake) / [文章](https://zhuanlan.zhihu.com/p/690240171) / [视频](https://www.bilibili.com/video/BV1EK421h7G7/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0) ]
+>
+> #### excalidraw 优雅的手绘风的绘图/白板工具 | 功能介绍 : [[代码/code](tools/excalidraw) / [文章](tools/excalidraw) / [视频]() ]

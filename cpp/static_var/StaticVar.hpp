@@ -8,6 +8,12 @@ static int & static_var_in_function() {
     return var;
 }
 
+namespace temp {
+
+static int namespace_static_var = 1;
+
+}
+
 class StaticVarInClass {
 public:
     static StaticVarInClass & getInstance() {
@@ -34,6 +40,7 @@ void * hpp_static_var_in_function_by_file1();
 void * hpp_StaticVarInClass_func_by_file1();
 void * hpp_StaticVarInClass_member_func_by_file1();
 void * hpp_StaticVarInClass_member_by_file1();
+void * namespace_file1();
 
 // file2.cpp
 void * file2_static_var();
@@ -43,5 +50,6 @@ void * hpp_static_var_in_function_by_file2();
 void * hpp_StaticVarInClass_func_by_file2();
 void * hpp_StaticVarInClass_member_func_by_file2();
 void * hpp_StaticVarInClass_member_by_file2();
+void * namespace_file2();
 
 #endif

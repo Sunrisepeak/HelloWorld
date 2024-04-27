@@ -2,27 +2,7 @@
 
 #include <StaticVar.hpp>
 
-/*
-struct A {
-    using Type = int &;
-    operator int&() {
-        printf("%p\n", &i);
-        return i;
-    }
-
-    int i;
-};
-
-void test(int &i) {
-    i = 2;
-}
-*/
 int main() {
-    //A a;
-    //test(a);
-    //printf("%p %d\n", &a, a.i);
-
-    return 0;
 
     printf("file1: static var %p\n", file1_static_var());
     printf("file2: static var %p\n", file2_static_var());
@@ -61,6 +41,11 @@ int main() {
 
     printf("file1: hpp: static class var %p\n", hpp_StaticVarInClass_member_by_file1());
     printf("file2: hpp: static class var %p\n", hpp_StaticVarInClass_member_by_file2());
+
+    printf("\n");
+
+    printf("file1: hpp: namespace_file1 var %p\n", namespace_file1());
+    printf("file2: hpp: namespace_file2 var %p\n", namespace_file2());
 
     return 0;
 }

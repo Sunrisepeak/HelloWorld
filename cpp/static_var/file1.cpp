@@ -31,3 +31,7 @@ void * hpp_StaticVarInClass_member_func_by_file1() {
 void * hpp_StaticVarInClass_func_by_file1() {
     return & StaticVarInClass::getInstance();
 }
+
+void * namespace_file1() {
+    return & temp::namespace_static_var;
+}

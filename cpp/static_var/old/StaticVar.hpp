@@ -1,5 +1,5 @@
-#ifndef __STATIC_VAR_HPP__
-#define __STATIC_VAR_HPP__
+#ifndef STATIC_VAR_HPP
+#define STATIC_VAR_HPP
 
 static int hpp_static_var = 1;
 

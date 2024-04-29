@@ -85,7 +85,8 @@
 > #### 两行代码判断环境内存字节序是大端模式还是小端模式 ： [ [代码/Code](cpp/byte_seq.c) / [视频/Video](https://www.bilibili.com/video/BV1Wh4y1M7uv) ]
 >
 > #### 多版本库隐式间接引用的风险 ： [ [代码/Code](cpp/linker_and_lib_version_issue) / [视频/Video]() ]
-
+>
+> #### 静态变量作用域的5种情况, 你能猜对几种 ： [ [代码/Code](cpp/static_var) / [视频/Video](https://www.bilibili.com/video/BV1Pt421w7qq/?share_source=copy_web&vd_source=2ab9f3bdf795fb473263ee1fc1d268d0) ]
 
 
 ---

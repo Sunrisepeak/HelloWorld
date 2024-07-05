@@ -1,5 +1,11 @@
 #include <iostream>
 
+/*
+
+g++ d2ds/array/0.Array.len.cpp && ./a.out
+
+*/
+
 template <typename T>
 void process(T arr) {
     printf("process: len %ld, arr[0] = %d \n", sizeof(arr), arr[0]);

@@ -1,27 +1,43 @@
 #include <iostream>
 #include <vector>
 
-/*
-    g++ cpp/using/using_namespace_std.cpp && ./a.out
-*/
-
-void print_vector(std::vector<int> &vec) {
+void process(std::vector<int> data) {
     using namespace std;
+    for (auto &val : data) {
+        val *= 2;
+    }
     cout << "[ ";
-    for (int val : vec) {
+    for (auto &val : data) {
         cout << val << " ";
     }
     cout << "]" << endl;
 }
 
-using namespace std;
+namespace n1 {
+namespace n2 {
+namespace n3 {
+    struct vector {
+
+    };
+}
+}
+}
+
+template <typename T>
+struct vector {
+
+};
 
 int main() {
-    cout << "hello namespace" << endl;
-    std::cout << "hello namespace" << std::endl;
-
-    vector<int> vec = {2, 2, 3, 3};
-    print_vector(vec);
-
+    vector<int> myVec;
+    {
+        using namespace std;
+        std::vector<int> vec {1, 2, 2, 3};
+        cout << "Hello World - " << vec[0] << endl;
+        process(vec);
+    }
+    vector<int> myVec2;
+    using namespace n1::n2;
+    n3::vector nVector;
     return 0;
 }

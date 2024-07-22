@@ -33,7 +33,7 @@ void * operator new(std::size_t size) {
         }
 
         // 4. call handler
-        if (!currentHandler && retry > 0) {
+        if (!currentHandler) {
             break;
         }
         currentHandler();

@@ -7,8 +7,6 @@ g++ cpp/new_delete/new_delete_2.cpp && ./a.out
 
 */
 
-struct T { int t[10000000]; };
-
 struct Object {
     Object(int i) : data { i } {
         std::cout << "Object(int i)" << std::endl;
@@ -17,50 +15,54 @@ struct Object {
         std::cout << "~Object()" << std::endl;
     }
     int data;
-    T t[1000000];
 };
 
 void * operator new(std::size_t size) {
-    auto handler = std::get_new_handler();
-    void *ptr;
-    while (true) {
-        // 1. malloc
-        ptr = malloc(size);
+    std::cout << "Custom operator new called, size: " << size << std::endl;
+    // 1. get handler
+    std::new_handler currentHandler = std::get_new_handler();
+    void* ptr = nullptr;
+    int retry = 3;
+    while (retry) {
+        // 2. malloc
+        ptr = std::malloc(size);
 
-        // 2. ptr ? nullptr
+        // 3. check ptr
         if (ptr) {
+            return ptr;
+        }
+
+        // 4. call handler
+        if (!currentHandler && retry > 0) {
             break;
         }
-    
-        // 3. ptr is nullptr - std::handler...
-        if (handler) {
-            handler();
-        } else {
-            // 4. bad_alloc
-            throw std::bad_alloc();
-        }
+        currentHandler();
+        printf("new: retry(%d) to alloc...\n", retry);
+        retry--;
     }
-    printf("allocate bytes %ld, addr %p\n", size, ptr);
-    return ptr;
+    throw std::bad_alloc();
+    // return nullptr; x
 }
 
 void operator delete(void *ptr) noexcept {
-    printf("free addr %p\n", ptr);
-    if (ptr) {
-        free(ptr);
-    }
+    printf("delete: addr %p\n", ptr);
+    free(ptr);
+}
+
+void * operator new[](std::size_t size) {
+    void *ptr = malloc(size);
+    printf("new[]: size %ld, addr %p\n", size, ptr);
+    return ptr;
+}
+
+void operator delete[](void *ptr) noexcept {
+    printf("delete[]: addr %p\n", ptr);
+    free(ptr);
 }
 
 int main() {
 
-    std::set_new_handler([] {
-        static int i = 1;
-        if (i == 0) {
-            throw std::bad_alloc();
-        }
-        i--;
-        std::cout << "new_handler" << std::endl; 
-    });
+    std::set_new_handler([] { std::cout << "do something..." << std::endl; });
 
     try {
         Object *objPtr = new Object(2);
@@ -70,10 +72,14 @@ int main() {
         delete objPtr;
         // 3.ptr->~T()
         // 4.free(ptr)
-    } catch(const std::bad_alloc &e) {
-        std::cerr << e.what() << std::endl;
+
+        auto arrPtr = new int[3];
+        delete[] arrPtr;
+    } catch (std::bad_alloc &e) {
+        std::cout << e.what() << std::endl;
     }
-    
-    printf(".....end\n");
+
+    std::cout << "end..." << std::endl;
+
     return 0;
 }

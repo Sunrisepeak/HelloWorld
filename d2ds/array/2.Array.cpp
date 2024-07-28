@@ -1,50 +1,36 @@
 #include <iostream>
 
-// g++ d2ds/array/1.Array.cpp && ./a.out
-
-struct IndexSafe {
-    IndexSafe(int i) : index{i} { handler = nullptr; }
-    using ErrHandler = int (*)(const char *);
-    IndexSafe & err(ErrHandler handler) {
-        this->handler = handler;
-        return *this;
-    }
-    void throw_err(const char *errMsg) {
-        if (handler) {
-            index = handler(errMsg);
-        } else {
-            std::cout << "IndexSafe: " << errMsg << std::endl;
-            index = 0;
-        }
-    }
-    int index;
-    ErrHandler handler;
-};
+// g++ d2ds/array/2.Array.cpp && ./a.out
 
 template <typename T, unsigned int N>
 struct Array {
-    T & operator[](IndexSafe index) {
-        if (index.index < 0) {
-            index.index += N;
+public:
+    Array(std::initializer_list<T> list) {
+        int i = 0;
+        for (auto it = list.begin(); i < N && it != list.end(); it++) {
+            arr[i] = *it;
+            i++;
         }
-        if (index.index < 0 || index.index >= N) {
-            index.throw_err("out of range...");
-        } 
-        return arr[index.index];
+        while (i < N) {
+            arr[i] = T();
+            i++;
+        }
     }
+public:
+    T & operator[](int index) {
+        if (index < 0) {
+            index += N;
+        }
+        return arr[index];
+    }
+private:
     T arr[N];
 };
 
 int main() {
-    int arr[10];
-    Array <int, 10> myArr;
-    myArr[10] = 0;
-    myArr[IndexSafe(10).err(
-        [](auto e){
-            printf("xxx: %s, return 9\n", e);
-            return 9;
-        }
-    )] = 2233;
-    std::cout << myArr[9] << std::endl;
+    int arr[5] = {1, 2, 3, 4, 5};
+    Array<int, 5> myArr = {1, 2, 3};
+    std::cout << arr[0] << " - " << myArr[0] << std::endl;
+    std::cout << arr[3] << " - " << myArr[-2] << std::endl;
     return 0;
 }

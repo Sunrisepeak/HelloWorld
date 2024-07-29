@@ -42,3 +42,4 @@ media
 **/__pycache__/
 **/.xmake
 **/build
+**/imgui_android_build

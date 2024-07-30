@@ -4,6 +4,7 @@
 
 # imgui_android_tools.sh install
 # imgui_android_tools.sh build
+# imgui_android_tools.sh run
 # imgui_android_tools.sh clean
 # imgui_android_tools.sh delete
 
@@ -47,7 +48,7 @@ if [ $cmd == "install" ] || [ ! -d $ANDROID_HOME_T ]; then
         source "$SDKMAN_DIR/bin/sdkman-init.sh"
     fi
 
-    sdk install gradle 7.5
+    sdk install gradle 8.0
 
     # imgui
     if [ ! -d "imgui" ]; then

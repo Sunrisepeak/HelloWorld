@@ -17,7 +17,7 @@ ANDROID_SDKMANAGER=$ANDROID_HOME_T/cmdline-tools/bin/sdkmanager
 ANDROID_ADB=$ANDROID_HOME_T/platform-tools/adb
 
 IMGUI_DEMO_DIR=$BUILD_DIR/imgui/examples/example_android_opengl3/android
-IMGUI_DEMO_APK=$IMGUI_DEMO_DIR/build/outputs/apk/debug/app-debug.apk
+IMGUI_DEMO_APK=$IMGUI_DEMO_DIR/app/build/outputs/apk/debug/app-debug.apk
 
 #############################################################
 

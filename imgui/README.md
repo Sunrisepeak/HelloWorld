@@ -52,7 +52,7 @@ ANDROID_CMD_TOOLS_FILE=commandlinetools-linux-9123335_latest.zip
 **下载命令行工具**
 
 ```cpp
-wget https://mirrors.cloud.tencent.com/AndroidSDK/%ANDROID_CMD_TOOLS_FILE -P $ANDROID_HOME
+wget https://mirrors.cloud.tencent.com/AndroidSDK/$ANDROID_CMD_TOOLS_FILE -P $ANDROID_HOME
 ```
 
 **解压**&配置
@@ -154,7 +154,7 @@ $ANDROID_ADB devices
 **安装**
 
 ```bash
-$ANDROID_ADB install build/outputs/apk/debug/app-debug.apk
+$ANDROID_ADB install app/build/outputs/apk/debug/app-debug.apk
 ```
 
 
